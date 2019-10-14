@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'wrath-nav-bar',
@@ -9,9 +10,12 @@ export class WrathNavBarComponent implements OnInit {
 
   private places: string[] = ["Home", "The Knights", "Photos", "Calendar", "Contact Us!"];
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
+  onClick(placeToGo: string) {
+    this.router.navigateByUrl(placeToGo)
+  }
 }

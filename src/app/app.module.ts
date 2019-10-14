@@ -9,6 +9,9 @@ import { WrathNavBarComponent } from './wrath-nav-bar/wrath-nav-bar.component';
 import { WrathNavPlaceComponent } from './wrath-nav-place/wrath-nav-place.component';
 import { KnightsPageComponent } from './knights-page/knights-page.component';
 import { HomePageComponent } from './home-page/home-page.component';
+import { PhotosPageComponent } from './photos-page/photos-page.component';
+import { CalendarPageComponent } from './calendar-page/calendar-page.component';
+import { ContactPageComponent } from './contact-page/contact-page.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +22,9 @@ import { HomePageComponent } from './home-page/home-page.component';
     WrathNavPlaceComponent,
     KnightsPageComponent,
     HomePageComponent,
+    PhotosPageComponent,
+    CalendarPageComponent,
+    ContactPageComponent,
   ],
   imports: [
     BrowserModule,
