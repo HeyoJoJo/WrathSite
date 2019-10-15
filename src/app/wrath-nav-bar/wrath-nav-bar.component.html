@@ -1,3 +1,3 @@
 <ul class="nav">
-    <li class="wrath-nav-bar-item" *ngFor="let place of this.places; let i = index" (click)="onClick(this.places[i])">{{this.places[i]}}</li>
+    <li *ngFor="let place of this.places; let i = index" (click)="onClick(this.places[i])">{{this.places[i]}}</li>
 </ul>
