@@ -1,11 +1,3 @@
-steps:
-# This step runs the unit tests on the app
-- name: 'Angular test'
-  id: Test
-  entrypoint: /bin/sh
-  args:
-  - ng test
-
 # This step builds the container image.
 - name: 'gcr.io/cloud-builders/docker'
   id: Build
