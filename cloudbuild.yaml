@@ -17,7 +17,7 @@ steps:
 # This step pushes the image to Container Registry
 # The PROJECT_ID and SHORT_SHA variables are automatically
 # replaced by Cloud Build.
-- name: 'gcr.io/WrathSite/docker'
+- name: 'gcr.io/wrathsite/docker'
   id: Push
   args:
   - 'push'
@@ -26,7 +26,7 @@ steps:
 
 # [START cloudbuild-trigger-cd]
 # This step clones the WrathSite-env repository
-- name: 'gcr.io/WrathSite/gcloud'
+- name: 'gcr.io/wrathsite/gcloud'
   id: Clone env repository
   entrypoint: /bin/sh
   args:
@@ -38,7 +38,7 @@ steps:
     git config user.email $(gcloud auth list --filter=status:ACTIVE --format='value(account)')
 
 # This step generates the new manifest
-- name: 'gcr.io/WrathSite/gcloud'
+- name: 'gcr.io/wrathsite/gcloud'
   id: Generate manifest
   entrypoint: /bin/sh
   args:
@@ -48,7 +48,7 @@ steps:
      sed "s/COMMIT_SHA/${SHORT_SHA}/g" > WrathSite-env/kubernetes.yaml
 
 # This step pushes the manifest back to WrathSite-env
-- name: 'gcr.io/WrathSite/gcloud'
+- name: 'gcr.io/wrathsite/gcloud'
   id: Push manifest
   entrypoint: /bin/sh
   args:
