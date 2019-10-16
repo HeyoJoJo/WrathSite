@@ -32,7 +32,7 @@ spec:
       - name: WrathSite
         image: gcr.io/GOOGLE_CLOUD_PROJECT/wrathsite:COMMIT_SHA
         ports:
-        - containerPort: 8080
+        - containerPort: 4200
 ---
 kind: Service
 apiVersion: v1
@@ -43,6 +43,6 @@ spec:
     app: wrathsite
   ports:
   - protocol: TCP
-    port: 80
-    targetPort: 8080
+    port: 4200
+    targetPort: 4201
   type: LoadBalancer
