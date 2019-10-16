@@ -30,7 +30,7 @@ spec:
     spec:
       containers:
       - name: WrathSite
-        image: gcr.io/GOOGLE_CLOUD_PROJECT/WrathSite:COMMIT_SHA
+        image: gcr.io/GOOGLE_CLOUD_PROJECT/wrathsite:COMMIT_SHA
         ports:
         - containerPort: 8080
 ---
