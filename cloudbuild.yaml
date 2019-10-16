@@ -16,7 +16,7 @@
 steps:
 
 # This step runs the unit tests on the app
-- name: 'gcr.io/wrathsite/docker'
+- name: 'gcr.io/jo-gitops-demo/wrathsite/docker'
   id: Build
   args:
   - 'build'
