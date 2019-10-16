@@ -15,32 +15,32 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: WrathSite
+  name: wrathsite
   labels:
-    app: WrathSite
+    app: wrathsite
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: WrathSite
+      app: wrathsite
   template:
     metadata:
       labels:
-        app: WrathSite
+        app: wrathsite
     spec:
       containers:
       - name: WrathSite
-        image: gcr.io/GOOGLE_CLOUD_PROJECT/WrathSite:COMMIT_SHA
+        image: gcr.io/GOOGLE_CLOUD_PROJECT/wrathsite:COMMIT_SHA
         ports:
         - containerPort: 8080
 ---
 kind: Service
 apiVersion: v1
 metadata:
-  name: WrathSite
+  name: wrathsite
 spec:
   selector:
-    app: WrathSite
+    app: wrathsite
   ports:
   - protocol: TCP
     port: 80
