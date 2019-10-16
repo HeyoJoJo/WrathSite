@@ -16,14 +16,13 @@
 steps:
 
 # This step runs the unit tests on the app
-- name: 'gcr.io/Jo Gitops demo/wrathsite/docker'
+- name: 'gcr.io/wrathsite/docker'
   id: Build
   args:
   - 'build'
   - '-t'
   - 'gcr.io/$PROJECT_ID/wrathsite:$SHORT_SHA'
   - '.'
-# This step clones the hello-cloudbuild-env repository
 
 # This step clones the WrathSite-env repository
 - name: 'gcr.io/wrathsite/gcloud'
