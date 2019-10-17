@@ -15,20 +15,20 @@
 # [START cloudbuild]
 steps:
 # This step builds the container image.
-- name: 'gcr.io/cloud-builders/docker'
+- name: 'gcr.io/wrathsite/docker'
   id: Build
   args:
   - 'build'
   - '-t'
-  - 'gcr.io/$PROJECT_ID/hello-cloudbuild:$SHORT_SHA'
+  - 'gcr.io/$PROJECT_ID/wrath-site:$SHORT_SHA'
   - '.'
 
 # This step pushes the image to Container Registry
 # The PROJECT_ID and SHORT_SHA variables are automatically
 # replaced by Cloud Build.
-- name: 'gcr.io/cloud-builders/docker'
+- name: 'gcr.io/wrath-site/docker'
   id: Push
   args:
   - 'push'
-  - 'gcr.io/$PROJECT_ID/hello-cloudbuild:$SHORT_SHA'
+  - 'gcr.io/$PROJECT_ID/wrath-site:$SHORT_SHA'
 # [END cloudbuild]
