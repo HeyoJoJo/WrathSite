@@ -15,32 +15,32 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: hello-cloudbuild
+  name: wrath-site
   labels:
-    app: hello-cloudbuild
+    app: wrath-site
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: hello-cloudbuild
+      app: wrath-site
   template:
     metadata:
       labels:
-        app: hello-cloudbuild
+        app: wrath-site
     spec:
       containers:
-      - name: hello-cloudbuild
-        image: gcr.io/GOOGLE_CLOUD_PROJECT/hello-cloudbuild:COMMIT_SHA
+      - name: wrath-site
+        image: gcr.io/GOOGLE_CLOUD_PROJECT/wrath-site:COMMIT_SHA
         ports:
         - containerPort: 8080
 ---
 kind: Service
 apiVersion: v1
 metadata:
-  name: hello-cloudbuild
+  name: wrath-site
 spec:
   selector:
-    app: hello-cloudbuild
+    app: wrath-site
   ports:
   - protocol: TCP
     port: 80
