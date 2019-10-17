@@ -15,7 +15,7 @@
 # [START cloudbuild]
 steps:
 # This step builds the container image.
-- name: 'gcr.io/wrathsite/docker'
+- name: 'gcr.io/wrath-site/docker'
   id: Build
   args:
   - 'build'
