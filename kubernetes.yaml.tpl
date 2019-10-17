@@ -43,6 +43,6 @@ spec:
     app: wrath-site
   ports:
   - protocol: TCP
-    port: 80
-    targetPort: 8080
+    port: 4201
+    targetPort: 4200
   type: LoadBalancer
