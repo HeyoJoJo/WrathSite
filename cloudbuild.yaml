@@ -14,51 +14,21 @@
 
 # [START cloudbuild]
 steps:
-
-# This step runs the unit tests on the app
-- name: 'gcr.io/wrathsite/docker'
+# This step builds the container image.
+- name: 'gcr.io/cloud-builders/docker'
   id: Build
   args:
   - 'build'
   - '-t'
-  - 'gcr.io/$PROJECT_ID/wrathsite:$SHORT_SHA'
+  - 'gcr.io/$PROJECT_ID/hello-cloudbuild:$SHORT_SHA'
   - '.'
 
-# This step clones the WrathSite-env repository
-- name: 'gcr.io/wrathsite/gcloud'
-  id: Clone env repository
-  entrypoint: /bin/sh
+# This step pushes the image to Container Registry
+# The PROJECT_ID and SHORT_SHA variables are automatically
+# replaced by Cloud Build.
+- name: 'gcr.io/cloud-builders/docker'
+  id: Push
   args:
-  - '-c'
-  - |
-    gcloud source repos clone WrathSite-env && \
-    cd WrathSite-env && \
-    git checkout candidate && \
-    git config user.email $(gcloud auth list --filter=status:ACTIVE --format='value(account)')
-
-# This step generates the new manifest
-- name: 'gcr.io/wrathsite/gcloud'
-  id: Generate manifest
-  entrypoint: /bin/sh
-  args:
-  - '-c'
-  - |
-     sed "s/GOOGLE_CLOUD_PROJECT/${PROJECT_ID}/g" kubernetes.yaml.tpl | \
-     sed "s/COMMIT_SHA/${SHORT_SHA}/g" > WrathSite-env/kubernetes.yaml
-
-# This step pushes the manifest back to WrathSite-env
-- name: 'gcr.io/wrathsite/gcloud'
-  id: Push manifest
-  entrypoint: /bin/sh
-  args:
-  - '-c'
-  - |
-    set -x && \
-    cd WrathSite-env && \
-    git add kubernetes.yaml && \
-    git commit -m "Deploying image gcr.io/${PROJECT_ID}/wrathsite:${SHORT_SHA}
-    Built from commit ${COMMIT_SHA} of repository WrathSite-app
-    Author: $(git log --format='%an <%ae>' -n 1 HEAD)" && \
-    git push origin candidate
-
-# [END cloudbuild-trigger-cd]
+  - 'push'
+  - 'gcr.io/$PROJECT_ID/hello-cloudbuild:$SHORT_SHA'
+# [END cloudbuild]
