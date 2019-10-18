@@ -2,6 +2,17 @@
     <body>
         <wrath-header displayText="The Angry Boys (and girls)"></wrath-header>
             <h2>Who we are: (literally)</h2>
+
+                <div class="nav">
+                    <knight *ngFor="let knight of knightList; let i = index"
+                        knightName="{{knight.knightName}}"
+                        knightBio="{{knight.knightBio}}"
+                        knightTitle="{{knight.knightTitle}}"
+                        knightImgPath="../../assets/knights/{{knight.knightName}}.jpg"
+                        style="display: inline-flexbox">
+                    </knight>
+                </div>
+
         <wrath-footer displayText></wrath-footer>
     </body>
 </div>

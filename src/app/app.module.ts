@@ -11,6 +11,7 @@ import { PhotosPageComponent } from './photos-page/photos-page.component';
 import { CalendarPageComponent } from './calendar-page/calendar-page.component';
 import { ContactPageComponent } from './contact-page/contact-page.component';
 import { WrathFooterComponent } from './wrath-footer/wrath-footer.component';
+import { KnightComponent } from './knight/knight.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { WrathFooterComponent } from './wrath-footer/wrath-footer.component';
     CalendarPageComponent,
     ContactPageComponent,
     WrathFooterComponent,
+    KnightComponent,
   ],
   imports: [
     BrowserModule,

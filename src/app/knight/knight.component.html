@@ -1,0 +1,8 @@
+<div class="knight-card" (click)="onClick()" (mouseenter)="toggleIsSelected()" (mouseleave)="toggleIsSelected()" [style.border-color]="color">
+    <h3>{{knightName}}</h3>
+    <h4>{{knightTitle}}</h4>
+    <img
+        [style.border-color]="color" class="knight-portrait" src="{{knightImgPath}}" alt="">
+        <p *ngIf="!isExpanded">Click for Bio</p>
+        <p *ngIf="isExpanded">{{knightBio}}</p>
+</div>

@@ -1,0 +1,14 @@
+.knight-card {
+    text-shadow: 0 0 6px purple;
+    border: solid 5px black;
+    background-color: white;
+    border-radius: 75px 5px;
+}
+
+.knight-portrait {
+    max-width: 50%;
+    max-height: 50%;
+    border: 5px solid black;
+    border-radius: 50%; 
+    z-index: 2;
+}
